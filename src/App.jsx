@@ -6,7 +6,7 @@ function App() {
     <div
       className="App"
       style={{
-        backgroundColor: "#93afda",
+        background: `linear-gradient(270deg, #dae1f5 0%, #5d729c 100%)`,
         width: "100vw",
         minHeight: "100vh",
         display: "flex",
