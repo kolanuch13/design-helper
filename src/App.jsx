@@ -8,7 +8,7 @@ function App() {
       style={{
         backgroundColor: "#93afda",
         width: "100vw",
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
