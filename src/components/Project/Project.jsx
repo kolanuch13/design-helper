@@ -1,10 +1,18 @@
 import { useState } from "react";
 import Answer from "../Answers/Answer";
+import {
+  Stack,
+  Button, 
+  FormLabel,
+  FilledInput,
+  Container,
+  InputBase,
+} from "@mui/material";
 
-function Project() {
-    const [length, setLength] = useState(0);
-    const [width, setWidth] = useState(0);
-    const [height, setHeight] = useState(0);
+const Project = () => {
+    const [square, setSquare] = useState();
+    const [perimeter, setPerimeter] = useState();
+    const [height, setHeight] = useState();
     const [project, setProject] = useState();
 
 
@@ -12,66 +20,106 @@ function Project() {
         const name = e.target.name;
         const value = e.target.value;
         switch (name) {
-          case "length":
-            setLength(value);
-            break;
-          case "width":
-            setWidth(value);
-            break;
-          case "height":
-            setHeight(value);
-            break;
-          default:
-            break;
+            case "square":
+                setSquare(value);
+                break;
+            case "perimeter":
+                setPerimeter(value);
+                break;
+            case "height":
+                setHeight(value);
+                break;
+            default:
+                break;
         }
     }; 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         setProject({
-            length: Number(length),
-            width: Number(width),
-            height: Number(height),
-        })
+          square: Number(square),
+          perimeter: Number(perimeter),
+          height: Number(height),
+        });
         return;
     }
 
     return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Input room length
-            <input
-              type="number"
-              value={length}
-              name="length"
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Input room width
-            <input
-              type="number"
-              value={width}
-              name="width"
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Input room height
-            <input
-              type="number"
-              value={height}
-              name="height"
-              onChange={handleChange}
-            />
-                </label>
-                <button type="submit">Submit</button>
-        </form>
-            <div>
-                {project && <Answer project={project} />}
-            </div>
-      </div>
+      <Container>
+        <Container>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+            }}
+          >
+            <Stack
+              spacing={1}
+              width="480px"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <FormLabel>
+                <p>Input room perimeter</p>
+                <InputBase
+                  sx={{
+                    backgroundColor: "#5789c2",
+                    padding: "5px",
+                    borderRadius: "3px",
+                  }}
+                  type="number"
+                  value={perimeter}
+                  name="perimeter"
+                  onChange={handleChange}
+                />
+              </FormLabel>
+              <FormLabel>
+                <p>Input room square</p>
+                <InputBase
+                  sx={{
+                    backgroundColor: "#5789c2",
+                    padding: "5px",
+                    borderRadius: "3px",
+                  }}
+                  type="number"
+                  value={square}
+                  name="square"
+                  onChange={handleChange}
+                />
+              </FormLabel>
+              <FormLabel>
+                <p>Input room height</p>
+                <InputBase
+                  sx={{
+                    backgroundColor: "#5789c2",
+                    padding: "5px",
+                    borderRadius: "3px",
+                  }}
+                  type="number"
+                  value={height}
+                  name="height"
+                  onChange={handleChange}
+                />
+              </FormLabel>
+              <Button
+                variant="contained"
+                type="submit"
+                style={{
+                  width: "200px",
+                }}
+              >
+                Submit
+              </Button>
+            </Stack>
+          </form>
+        </Container>
+        <Container>{project && <Answer project={project} />}</Container>
+      </Container>
     );
 }
 
