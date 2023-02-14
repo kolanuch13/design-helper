@@ -65,7 +65,7 @@ const Project = () => {
               }}
             >
               <FormLabel>
-                <p>Input room perimeter</p>
+                <p>Input room perimeter in meters</p>
                 <InputBase
                   sx={{
                     backgroundColor: "#5789c2",
@@ -79,7 +79,9 @@ const Project = () => {
                 />
               </FormLabel>
               <FormLabel>
-                <p>Input room square</p>
+                <p>
+                  Input room square in m<sup>2</sup>
+                </p>
                 <InputBase
                   sx={{
                     backgroundColor: "#5789c2",
@@ -93,7 +95,7 @@ const Project = () => {
                 />
               </FormLabel>
               <FormLabel>
-                <p>Input room height</p>
+                <p>Input room height in meters</p>
                 <InputBase
                   sx={{
                     backgroundColor: "#5789c2",

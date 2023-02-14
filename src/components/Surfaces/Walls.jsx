@@ -1,6 +1,6 @@
 import Paint from "../Material/Paint";
 import Tile from "../Material/Tile";
-import Walpers from "../Material/Walpers";
+import Wallpaper from "../Material/Wallpaper";
 import { useState } from "react";
 import { Select, MenuItem, Container } from "@mui/material";
 
@@ -12,7 +12,9 @@ function Walls({ wallsSquare, wallsHeight, wallsLength }) {
 
   return (
     <div>
-      <Container>
+      <Container sx={{
+        marginTop: "30px"
+      }}>
         <Select
           style={{
             width: "200px",
@@ -22,7 +24,7 @@ function Walls({ wallsSquare, wallsHeight, wallsLength }) {
         >
           <MenuItem value="tile">Tile</MenuItem>
           <MenuItem value="paint">Paint</MenuItem>
-          <MenuItem value="walpers">Walpers</MenuItem>
+          <MenuItem value="walpers">Wallpaper</MenuItem>
         </Select>
         <Container
           sx={{
@@ -32,7 +34,7 @@ function Walls({ wallsSquare, wallsHeight, wallsLength }) {
           {material === "tile" && <Tile square={wallsSquare} />}
           {material === "paint" && <Paint square={wallsSquare} />}
           {material === "walpers" && (
-            <Walpers height={wallsHeight} length={wallsLength} />
+            <Wallpaper height={wallsHeight} length={wallsLength} />
           )}
         </Container>
       </Container>

@@ -3,20 +3,19 @@ import { useState } from "react";
 import { FormLabel, Slider, Stack } from "@mui/material";
 
 
-function Walpers({ height, length }) {
-  const [wallperWidth, setWallperWidthPieces] = useState(1);
+function Wallpaper({ height, length }) {
+  const [wallpaperWidth, setWallpaperWidthPieces] = useState(1);
   const [totalAmount, setTotalAmount] = useState();
 
   useEffect(() => {
-    setTotalAmount((length / wallperWidth) * height);
-  }, [wallperWidth]);
+    setTotalAmount((length / wallpaperWidth) * height);
+  }, [wallpaperWidth]);
 
   return (
     <Stack>
       <FormLabel>
         <p>
-          Input wallpers width
-          {wallperWidth}
+          Input Wallpapers width {wallpaperWidth}m
         </p>
         <Slider
           sx={{
@@ -25,15 +24,15 @@ function Walpers({ height, length }) {
           min={0}
           max={11}
           step={0.1}
-          value={wallperWidth}
+          value={wallpaperWidth}
           onChange={(e) => {
-            setWallperWidthPieces(e.target.value);
+            setWallpaperWidthPieces(e.target.value);
           }}
         />
       </FormLabel>
-      <h3>You need {Math.ceil(totalAmount)} meters of walpers.</h3>
+      <h3>You need {Math.ceil(totalAmount)} meters of wallpaper.</h3>
     </Stack>
   );
 }
 
-export default Walpers;
+export default Wallpaper;
